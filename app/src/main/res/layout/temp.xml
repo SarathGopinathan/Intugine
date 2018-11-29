@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="400dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/rel_columns">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/txt_temp"
+            android:text="temp"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_mintemp"
+            android:text="min temp"
+            android:layout_toRightOf="@+id/txt_temp"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:text="max temp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_maxtemp"
+            android:layout_toRightOf="@+id/txt_mintemp"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="humidity"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_hum"
+            android:layout_toRightOf="@+id/txt_maxtemp"
+            android:textSize="15dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/rl_blore"
+        android:layout_below="@+id/rel_columns"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bangalore"
+            android:textColor="@android:color/black"
+            android:id="@+id/txt_blore"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/txt_blore"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/txt_tempblore"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_blore"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_mintempblore"
+            android:layout_toRightOf="@+id/txt_tempblore"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_blore"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_maxtempblore"
+            android:layout_toRightOf="@+id/txt_mintempblore"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/txt_blore"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_humblore"
+            android:layout_toRightOf="@+id/txt_maxtempblore"
+            android:textSize="15dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/rl_del"
+        android:layout_below="@+id/rl_blore">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delhi"
+            android:id="@+id/txt_del"
+            android:textColor="@android:color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_del"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/txt_tempdel"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_del"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_mintempdel"
+            android:layout_toRightOf="@+id/txt_tempdel"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textColor="@android:color/black"
+            android:layout_below="@+id/txt_del"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_maxtempdel"
+            android:layout_toRightOf="@+id/txt_mintempdel"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_del"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_humdel"
+            android:layout_toRightOf="@+id/txt_maxtempdel"
+            android:textSize="15dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/rl_mumbai"
+        android:layout_below="@+id/rl_del">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mumbai"
+            android:id="@+id/txt_mum"
+            android:textColor="@android:color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_mum"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/txt_tempmum"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_mum"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/black"
+            android:id="@+id/txt_mintempmum"
+            android:layout_toRightOf="@+id/txt_tempmum"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_mum"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_maxtempmum"
+            android:textColor="@android:color/black"
+            android:layout_toRightOf="@+id/txt_mintempmum"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_mum"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_hummum"
+            android:layout_toRightOf="@+id/txt_maxtempmum"
+            android:textSize="15dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/rl_user_details">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/iv_userdp"
+            android:background="@android:color/black"
+            android:layout_marginLeft="25dp"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:text="Mike Edward"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_userdp"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 hours ago"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="100dp"
+        class="com.google.android.gms.maps.SupportMapFragment"/>
+
+
+    //I am not adding the icons as I do not have the icon resources and color codes.
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/rl_travel_details"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text=""
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_location"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_location"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btn_temperature"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Temperature"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
