@@ -46,7 +46,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.ResponseHandlerInterface;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,6 +58,7 @@ import java.util.List;
 import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -173,13 +178,19 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLng(source));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(source, 15f));
 
-
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
         String timestamp = simpleDateFormat.format(new Date());
 
-        pushLocationAPI(source,timestamp);
+        try {
+            pushLocationAPI(source,timestamp);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 0, new LocationListener() {
+
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300000, 0, new LocationListener() {
                     @Override
                     public void onLocationChanged(Location location) {
 
@@ -187,6 +198,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         mMap.addMarker(new MarkerOptions().position(latLng).title("Your location"));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
+
+
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
+                        String timestamp = simpleDateFormat.format(new Date());
+
+                        try {
+                            pushLocationAPI(latLng,timestamp);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
 
                     }
                     @Override
@@ -204,15 +227,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         );
     }
 
-    private void pushLocationAPI(LatLng latLng, String timestamp) {
+    private void pushLocationAPI(LatLng latLng, String timestamp) throws JSONException, UnsupportedEncodingException {
 
         AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        params.add("name","test");
-        params.add("loc", String.valueOf(latLng));
-        params.add("time",timestamp);
+        JSONObject jsonParams = new JSONObject();
+        jsonParams.put("name","test");
+        jsonParams.put("loc",""+latLng.latitude+","+latLng.longitude);
+        jsonParams.put("time",timestamp);
+        StringEntity entity = new StringEntity(jsonParams.toString());
+
         client.setTimeout(20 * 10000);
-        client.post("https://96gw5cphgi.execute-api.ap-south-1.amazonaws.com/latest/",params,new MainActivity.ResponceHandlerClass());
+        client.post(MainActivity.this,"https://96gw5cphgi.execute-api.ap-south-1.amazonaws.com/latest/",entity,"application/json"
+                ,new MainActivity.ResponceHandlerClass());
 
     }
 
